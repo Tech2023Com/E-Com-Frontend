@@ -1,0 +1,26 @@
+.reg-container{
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-self: center;
+align-items: center;
+margin: auto;
+width: 80%;
+margin-top: 20px;
+
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 80%;
+    box-shadow: 5px 5px #888888;
+
+    
+}
+
+.form-group{
+    padding: 10px;
+}

@@ -1,0 +1,1 @@
+export const customer_base_url  = 'http://localhost:8989/customer/'
