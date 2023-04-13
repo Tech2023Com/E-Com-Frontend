@@ -2,6 +2,7 @@ import React ,{useState , useEffect}  from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios'
 import {customer_base_url} from '../Config/BaseUrl'
+import {useNavigate} from 'react-router-dom'
 
 
 
@@ -9,6 +10,7 @@ import '../Styles/Reg.css'
 
 
 const Register =  () =>{
+    const navigate = useNavigate()
 
     const [values , setValues ] =  useState({
 
@@ -188,6 +190,12 @@ return(
      
      
     <div class="row">
+    <div class="col-sm">
+        <h6 style={{textAlign:"center",marginTop:'10px', marginBottom:'10px'}}><i>Already Have an account ? </i>  <span onClick={()=>navigate('/login')} style={{color:"blue" , cursor:"pointer" }}><u>Login Here !!</u></span> </h6>    
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col-sm">
   <button  style={{width:'100%' , backgroundImage:'linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet)'}} onClick={handleSubmit} class="btn btn-primary">Submit</button>
     

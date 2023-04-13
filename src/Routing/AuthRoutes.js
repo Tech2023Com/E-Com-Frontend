@@ -16,10 +16,10 @@ const Routing = ()=>{
 
         <>
         <Routes>
-            <Route path='/'  element={<Home/>} />
-            <Route path='/home'  element={<Home/>} />
-            <Route path='/about'  element={<About/>} />
-            <Route path='*'  element={<Home/>} />
+            <Route path='/'  element={<Login/>} />
+            <Route path='/register'  element={<Register/>} />
+            <Route path='/login'  element={<Login/>} />
+            <Route path='*'  element={<Login/>} />
         </Routes>
         </>
 

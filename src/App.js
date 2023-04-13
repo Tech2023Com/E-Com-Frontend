@@ -1,9 +1,10 @@
 
 import Navbar from "./Navbar/Nav";
-import Routing from "./Routing/Routes";
+import Routing from "./Routing/RoutesSeperation";
 
 import store from "./Store/Store";
 import { Provider } from "react-redux";
+
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
     <div className="App">
       <Provider store={store}>
 
-       <Navbar/>
+       
       <Routing/>
       </Provider>
     </div>
