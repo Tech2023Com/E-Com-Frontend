@@ -1,33 +1,54 @@
-import  React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import  React, { useState } from 'react'
+import '../Styles/Cards.css'
 
-import {handleDecrement, handleIncrement} from '../Actions/Actions'
+import {useEffect} from 'react'
+import axios from 'axios'
+import {customer_base_url} from '../Config/BaseUrl'
+
+import {useNavigate} from 'react-router-dom'
+
 
 
 const Home = () =>{
 
-    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+   const [data, setData] =  useState([])
 
 
-    const count = useSelector((state)=> state.CountData.count ? state.CountData.count : 0 )
 
-    const handleIncr = ()=>{
+    
 
-        dispatch(handleIncrement(count +1))
+ useEffect(()=>{
 
-    }
+    axios.get(customer_base_url + 'get-products').then((res)=>{
+        console.log(res.data)
+        setData(res.data.products)
+    })
 
-    const handleDecr = () =>{
-        dispatch(handleDecrement(count -1))
-
-    }
+ },[])   
 
 
 return(
     <>  
-        <h1>Value of Count is : {count}</h1>
-        <button onClick={handleIncr} >Increment</button>
-        <button onClick={handleDecr}>Decrement</button>
+
+<div class="row">
+ {data.map((el,i)=>(
+
+<div   class="column">
+    <div  onClick={()=> navigate(`/product_view/${el._id}` ,  {state :  el})} class="card">
+      <img src={el.images}  style={{width : "250px" , height : "200px"}}  />
+      <p>Category : {el.category}</p>
+      <p>Specification : {el.specifications.join()}</p>
+      <p>Price : {el.price}</p>
+    </div>
+  </div>
+ ))}
+
+</div>
+
+
+        
     </>
 )
 
